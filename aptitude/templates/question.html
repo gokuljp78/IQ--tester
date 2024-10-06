@@ -1,0 +1,61 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<link rel="stylesheet" href="{%static 'css/ques1.css'%}" />
+
+<h1>Let test YoUr IQ</h1>
+<ol type="1" style="font-size: 32px">
+  {% for i in qt %}
+  <li>
+    {{ i.quest }}
+    <table>
+      <tr>
+        <td>
+          <input
+            type="radio"
+            onclick="check('{{i.id}} {{i.ans}} {{i.cho1}}')"
+            name="{{i.id}}"
+          />
+          a) {{ i.cho1 }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="radio"
+            onclick="check('{{i.id}} {{i.ans}} {{i.cho2}}')"
+            name="{{i.id}}"
+          />
+          b) {{ i.cho2 }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="radio"
+            onclick="check('{{i.id}} {{i.ans}} {{i.cho3}}')"
+            name="{{i.id}}"
+          />
+          c) {{ i.cho3 }}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input
+            type="radio"
+            onclick="check('{{i.id}} {{i.ans}} {{i.cho4}}')"
+            name="{{i.id}}"
+          />
+          d) {{ i.cho4 }}
+        </td>
+      </tr>
+    </table>
+  </li>
+  {% endfor %}
+</ol>
+<form method="POST" action="ans">
+  {% csrf_token %}
+  <input type="hidden" id="answerid" name="answer" value="{{id}}" />
+  <button type="submit" onclick="answer()" class="but">SUBMIT</button>
+</form>
+<script src="{% static 'js/evalution.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block content %}{% load static %}
+    <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+      rel="stylesheet"
+      id="bootstrap-css"
+    />
+    <link rel="stylesheet" href="{%static 'css/result.css' %}" />
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  </head>
+  <body>
+    <h1>HERE'S YOUR SCORE</h1>
+    <div class="prog">
+      <div class="progress-bar-container" style="--r: {{per}}">
+        <h2>
+          <label for="html">SCORE:{{per}}/100</label>
+        </h2>
+        <div class="progress-bar html" style="--r: {{per}}">
+          <progress id="html" min="0" max="100" value="10"></progress>
+        </div>
+      </div>
+      <br />
+    </div>
+    <br />
+    <div class="break"></div>
+    <a href="http://127.0.0.1:8000/"><button class="but">TRY AGAIN</button></a>
+    </body>
+
+    <!--<div class="progress-bar-container">
+      <h2>
+        <label for="css">CSS</label>
+      </h2>
+      <div class="progress-bar css" style="--r: {{score}}">
+        <progress id="css" min="0" max="100" value="{{per}}"></progress>
+      </div>
+    </div>
+
+    <div class="progress-bar-container">
+      <h2>
+        <label for="js">JavaScript</label>
+      </h2>
+      <div class="progress-bar js" style="--r: {{score1}}">
+        <progress id="js" min="0" max="100" value="{{per}}"></progress>
+      </div>
+    </div> -->
+    {% endblock %}
+  </body>
+</html>
